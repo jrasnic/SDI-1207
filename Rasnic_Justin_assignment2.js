@@ -1,7 +1,8 @@
 // alert("JavaScript works!");
 
 // global variables
-var name = "Arne",
+var name = "Arneithan",
+	nickName = "Arne",
 	weapons = ["greatsword", "dagger", "bow", "axe"],
 	cleanliness = "no",
 	enemies = 4;
@@ -9,16 +10,16 @@ var name = "Arne",
 // procedure
 var areWeaponsClean = function (clean) {
 	if (clean == "yes") {
-		console.log("Weapons are clean and ready for battle.");
+		console.log("His weapons are clean and ready for battle.");
 	} else {
-		console.log("Weapons are dirty. They should be cleaned and readied for battle.");
+		console.log("His weapons are dirty. They should be cleaned and readied for battle.");
 	};
 };
 
 // boolean function
 var enterCombat = function (ableToFight, enemies) {
 	if (ableToFight >= enemies) {
-		console.log("There are only " + enemies + " enemies; " + name + " slaughters them!");
+		console.log("There are only " + enemies + " enemies; " + nickName + " slaughters them!");
 		return true;
 	} else {
 		console.log("There are too many! Run!");
@@ -42,27 +43,33 @@ var combat = function (enemies) {
 var cleanWeapons = function (weapons, enemies) {
 	var weaponsRemaining = weapons.length;
 	for (var weaponNumber = 0; weaponNumber < weaponsRemaining; weaponNumber++) {
-		console.log("Cleaning " + weapons[weaponNumber] + ".");
+		console.log(name + " is cleaning his " + weapons[weaponNumber] + ".");
 	};
 	weapons.sort();
-	console.log("Weapons are clean, sorted, and ready for battle.");
+	console.log("His weapons are clean, sorted, and ready for battle.");
 	return weapons;
 };
 
+// string function
+var getIntro = function (name, nickName) {
+	intro = "There was a warrior named " + name + ", known as " + nickName + " to his friends."
+	return intro;
+}
 
+// body code
+var intro = getIntro(name, nickName);
+console.log(intro);
 
 areWeaponsClean(cleanliness);
 
 if (cleanliness == "no") {
 	cleanWeapons(weapons, enemies);
 };
-
 console.log(weapons);
 
 enterCombat(5, enemies);
 
 var numberDefeated = combat(enemies);
-
 console.log(numberDefeated + " enemies defeated. There are none left.");
 
 
