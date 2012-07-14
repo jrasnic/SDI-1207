@@ -1,7 +1,9 @@
 // alert("JavaScript works!");
 
+// global variables
 var name = "Arne",
 	weapons = ["greatsword", "dagger", "bow", "axe"],
+	cleanliness = "no",
 	enemies = 4;
 
 // procedure
@@ -30,14 +32,40 @@ var combat = function (enemies) {
 	while (defeated < enemies) {
 		console.log( defeated + " enemies defeated.");
 		defeated ++;
-	}
+	};
 	return defeated;
 
 };
 
-areWeaponsClean("yes");
+
+// array function
+var cleanWeapons = function (weapons, enemies) {
+	var weaponsRemaining = weapons.length;
+	for (var weaponNumber = 0; weaponNumber < weaponsRemaining; weaponNumber++) {
+		console.log("Cleaning " + weapons[weaponNumber] + ".");
+	};
+	weapons.sort();
+	console.log("Weapons are clean, sorted, and ready for battle.");
+	return weapons;
+};
+
+
+
+areWeaponsClean(cleanliness);
+
+if (cleanliness == "no") {
+	cleanWeapons(weapons, enemies);
+};
+
+console.log(weapons);
+
 enterCombat(5, enemies);
+
 var numberDefeated = combat(enemies);
+
 console.log(numberDefeated + " enemies defeated. There are none left.");
+
+
+
 
 
