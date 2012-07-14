@@ -67,6 +67,8 @@ if (cleanliness == "no") {
 };
 console.log(weapons);
 
+console.log("Battle is upon him!");
+
 enterCombat(5, enemies);
 
 var numberDefeated = combat(enemies);
