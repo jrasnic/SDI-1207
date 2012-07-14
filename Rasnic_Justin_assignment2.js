@@ -1,4 +1,9 @@
 // alert("JavaScript works!");
+// Justin Rasnic
+// 7/13/12
+// SDI 1207
+// Project 2
+// Story with functions, loops, and arrays
 
 // global variables
 var name = "Arneithan",
