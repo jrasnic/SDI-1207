@@ -1,8 +1,8 @@
 // alert("JavaScript works!");
 
 var name = "Arne",
-	daysTravelled = 7,
-	weapons = ["greatsword", "dagger", "bow", "axe"];
+	weapons = ["greatsword", "dagger", "bow", "axe"],
+	enemies = 4;
 
 // procedure
 var areWeaponsClean = function (clean) {
@@ -14,13 +14,30 @@ var areWeaponsClean = function (clean) {
 };
 
 // boolean function
-var enterCombat = function (ableToFight, numberOfEnemies) {
-	if (ableToFight >= numberOfEnemies) {
-		console.log("There are only " + numberOfEnemies + " enemies; " + name + " slaughters them!");
+var enterCombat = function (ableToFight, enemies) {
+	if (ableToFight >= enemies) {
+		console.log("There are only " + enemies + " enemies; " + name + " slaughters them!");
+		return true;
 	} else {
 		console.log("There are too many! Run!");
+		return false;
 	};
 };
 
+// number function
+var combat = function (enemies) {
+	var defeated = 0;
+	while (defeated < enemies) {
+		console.log( defeated + " enemies defeated.");
+		defeated ++;
+	}
+	return defeated;
+
+};
+
 areWeaponsClean("yes");
-enterCombat(5,4);
+enterCombat(5, enemies);
+var numberDefeated = combat(enemies);
+console.log(numberDefeated + " enemies defeated. There are none left.");
+
+
