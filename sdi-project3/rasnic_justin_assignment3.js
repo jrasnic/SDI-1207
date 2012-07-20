@@ -29,7 +29,7 @@ var getRange = function(json){
 // global variables
 var name = "Arneithan",
 	nickName = "Arne",
-	cleanliness = true,
+	cleanliness = false,
 	enemies = 6,
 	ableToFight = 8,
 	weapons = getWeapons(json),
