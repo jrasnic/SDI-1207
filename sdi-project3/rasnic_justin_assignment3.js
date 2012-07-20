@@ -19,8 +19,9 @@ var handleData = function(json){
 // global variables
 var name = "Arneithan",
 	nickName = "Arne",
-	cleanliness = false,
-	enemies = 4;
+	cleanliness = true,
+	enemies = 6,
+	ableToFight = 8,
 	weapons = handleData(json);
 
 // procedure
@@ -37,10 +38,17 @@ var enterCombat = function (ableToFight, enemies) {
 	if (ableToFight >= enemies && cleanliness == true) {
 		console.log("There are only " + enemies + " enemies; " + nickName + " slaughters them!");
 		return true;
-	} if (ableToFight >= enemies && cleanliness == false) {
+	} if (cleanliness == false) {
 		console.log("Your weapons are not properly prepared. You best avoid the fight until you are ready.");
+		if (ableToFight < enemies){
+			console.log("Those boys would rough you up, anyway.");
+			return false;
+		} else {
+			console.log("It's a shame, too; they would have been easy work.");
+			return false;
+		}
 	} else {
-		console.log("There are too many! Run!");
+		console.log("Your weapons are ready, but there are too many! Run!");
 		return false;
 	};
 };
@@ -56,7 +64,6 @@ var combat = function (enemies) {
 
 };
 
-
 // array function
 var cleanWeapons = function (weapons) {
 	var weaponsRemaining = weapons.length;
@@ -71,7 +78,7 @@ var cleanWeapons = function (weapons) {
 
 // string function
 var getIntro = function (name, nickName) {
-	intro = "There was a warrior named " + name + ", known as " + nickName + " to his friends."
+	var intro = "There is a warrior named " + name + ", known as " + nickName + " to his friends. He can fight " + ableToFight + " enemies at one time.";
 	return intro;
 }
 
@@ -82,16 +89,17 @@ areWeaponsClean(cleanliness);
 
 if (cleanliness == false) {
 	cleanWeapons(weapons);
+} else {
+	weapons.sort();
 };
 
 console.log(weapons);
 
-
-
 console.log("Battle is upon him!");
-enterCombat(5, enemies);
-var numberDefeated = combat(enemies);
-console.log(numberDefeated + " enemies defeated. There are none left.");
+if (enterCombat(ableToFight, enemies) == true){
+	var numberDefeated = combat(enemies);
+	console.log(numberDefeated + " enemies defeated. There are none left.");
+};
 
 
 
