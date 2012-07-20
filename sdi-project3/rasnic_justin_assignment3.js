@@ -5,7 +5,7 @@
 // 
 
 // handle json data
-var handleData = function(json){
+var getWeapons = function(json){
 	var weapons = [];
 	for (var key in json.weapons){
 		//var weapon = json.weapons[key];
@@ -15,6 +15,16 @@ var handleData = function(json){
 	return weapons;
 };
 
+var getRange = function(json){
+	var ranges = [];
+	for (var key in json.weapons){
+			var weapon = json.weapons[key];
+			//console.log(" weapon : " + key + ", name : " + weapon.name + ", range : " + weapon.range);
+			var	range = weapon.range;
+		ranges.push(range);
+	}
+		return ranges;
+};
 
 // global variables
 var name = "Arneithan",
@@ -22,7 +32,8 @@ var name = "Arneithan",
 	cleanliness = true,
 	enemies = 6,
 	ableToFight = 8,
-	weapons = handleData(json);
+	weapons = getWeapons(json),
+	ranges = getRange(json);
 
 // procedure
 var areWeaponsClean = function (clean) {
@@ -100,7 +111,6 @@ if (enterCombat(ableToFight, enemies) == true){
 	var numberDefeated = combat(enemies);
 	console.log(numberDefeated + " enemies defeated. There are none left.");
 };
-
 
 
 
