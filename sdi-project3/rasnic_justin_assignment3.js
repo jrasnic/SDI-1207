@@ -10,7 +10,7 @@ var handleData = function(json){
 	for (var key in json.weapons){
 		//var weapon = json.weapons[key];
 		//console.log(" weapon : " + key + ", name : " + weapon.name + ", range : " + weapon.range);
-		weapons.push[key];
+		 weapons.push(key);
 	};
 	return weapons;
 };
@@ -81,7 +81,7 @@ console.log(intro);
 areWeaponsClean(cleanliness);
 
 if (cleanliness == false) {
-	cleanWeapons(handleData(json));
+	cleanWeapons(weapons);
 };
 
 console.log(weapons);
