@@ -64,7 +64,13 @@ var myLibrary = function () {
 	var changeSeparator = function (string, oldSep, newSep) {
 		var newString = string.replace(oldSep, newSep, "g");
 		return newString;
+	};
 
+	// Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10
+
+	var formatNumber = function (number) {
+		var newNumber = number.toFixed(2);
+		return newNumber;
 	};
 
 
@@ -73,7 +79,8 @@ var myLibrary = function () {
 		"validEmailCheck": validEmailCheck,
 		"urlCheck": urlCheck,
 		"titleCase": titleCase,
-		"changeSeparator": changeSeparator
+		"changeSeparator": changeSeparator,
+		"formatNumber": formatNumber
 
 	};
 
@@ -86,4 +93,5 @@ console.log(myLib.validEmailCheck("bballerjr05@yahoo.com"));
 console.log(myLib.urlCheck("https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/substring"));
 console.log(myLib.titleCase("i hope this works"));
 console.log(myLib.changeSeparator("a,b,c",",","/"));
+console.log(myLib.formatNumber(3.14159));
 
