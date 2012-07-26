@@ -41,12 +41,32 @@ var myLibrary = function () {
 		}
 	};
 
+	// Title-case a string (split into words, then uppercase the first letter of each word)
 
+	var titleCase = function (string) {
+		var wordCheck = /\s/;
+		var firstLetter = string.slice(0,1);
+		string = string.split(firstLetter).join(firstLetter.toUpperCase(),1);
+		for (var i = 0; i < string.length; i++) {
+			if (wordCheck.test(string.slice(i,i+1)) == true){
+				var lowerCaseLetter = string.slice(i+1,i+2);
+				var upperCaseLetter = lowerCaseLetter.toUpperCase();
+				string = string.split(lowerCaseLetter).join(upperCaseLetter,1);
+			}
+		}
+		return string;
+	};
+
+	// Given a string that is a list of things separated by a given string, 
+	// as well as another string separator, return a string with the first 
+	// separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
 
 	return {
 		"validPhoneNumCheck": validPhoneNumCheck,
 		"validEmailCheck": validEmailCheck,
-		"urlCheck": urlCheck
+		"urlCheck": urlCheck,
+		"titleCase": titleCase
+
 	};
 
 };
@@ -56,3 +76,5 @@ var myLib = myLibrary ();
 console.log(myLib.validPhoneNumCheck("203-297-5077"));
 console.log(myLib.validEmailCheck("bballerjr05@yahoo.com"));
 console.log(myLib.urlCheck("https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/substring"));
+console.log(myLib.titleCase("i hope this works"));
+
