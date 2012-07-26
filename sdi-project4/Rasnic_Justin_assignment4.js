@@ -23,12 +23,16 @@ var myLibrary = function () {
 
 	// Does a string follow an aaa@bbb.ccc pattern like an email address?
 
-	var
+	var validEmailCheck = function (email) {
+		var emailCheck = /[a-zA-Z0-9\-_\.]+@[a-zA-Z]+\.[a-zA-Z]+/;
+		return emailCheck.test(email);
+	};
 
 
 
 	return {
-		"validPhoneNumCheck": validPhoneNumCheck
+		"validPhoneNumCheck": validPhoneNumCheck,
+		"validEmailCheck": validEmailCheck
 	};
 
 };
@@ -36,3 +40,4 @@ var myLibrary = function () {
 var myLib = myLibrary ();
 
 console.log(myLib.validPhoneNumCheck("203-297-5077"));
+console.log(myLib.validEmailCheck("bballerjr05@yahoo.com"));
