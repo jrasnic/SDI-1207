@@ -73,6 +73,21 @@ var myLibrary = function () {
 		return newNumber;
 	};
 
+	// Find the number of hours or days difference between two dates.
+
+	var daysFrom = function (year, month, day) {
+		var origDate = new Date(year, month, day);
+		var currentDate = new Date();
+		var daysSince = (currentDate - origDate)/86400000;
+		var days = Math.floor(daysSince);
+		var hours = days%24;
+		return {
+				"days": days,
+				"hours": hours
+		};
+	};
+
+
 
 	return {
 		"validPhoneNumCheck": validPhoneNumCheck,
@@ -80,7 +95,8 @@ var myLibrary = function () {
 		"urlCheck": urlCheck,
 		"titleCase": titleCase,
 		"changeSeparator": changeSeparator,
-		"formatNumber": formatNumber
+		"formatNumber": formatNumber,
+		"daysFrom": daysFrom
 
 	};
 
@@ -94,4 +110,5 @@ console.log(myLib.urlCheck("https://developer.mozilla.org/en/JavaScript/Referenc
 console.log(myLib.titleCase("i hope this works"));
 console.log(myLib.changeSeparator("a,b,c",",","/"));
 console.log(myLib.formatNumber(3.14159));
+console.log(myLib.daysFrom(1986,09,04));
 
