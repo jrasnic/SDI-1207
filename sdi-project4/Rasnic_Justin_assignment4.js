@@ -29,10 +29,24 @@ var myLibrary = function () {
 	};
 
 
+	// Is the string a URL? (Does it start with http: or https:?)
+
+	var urlCheck = function (url){
+		if (url.substring(0,5) == "http:") {
+			return true;
+		} else {
+			if (url.substring(0,6) == "https:") {
+				return true;
+			} else { return false};
+		}
+	};
+
+
 
 	return {
 		"validPhoneNumCheck": validPhoneNumCheck,
-		"validEmailCheck": validEmailCheck
+		"validEmailCheck": validEmailCheck,
+		"urlCheck": urlCheck
 	};
 
 };
@@ -41,3 +55,4 @@ var myLib = myLibrary ();
 
 console.log(myLib.validPhoneNumCheck("203-297-5077"));
 console.log(myLib.validEmailCheck("bballerjr05@yahoo.com"));
+console.log(myLib.urlCheck("https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/substring"));
