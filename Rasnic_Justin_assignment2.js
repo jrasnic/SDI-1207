@@ -23,7 +23,7 @@ var areWeaponsClean = function (clean) {
 
 // boolean function
 var enterCombat = function (ableToFight, enemies) {
-	if (ableToFight >= enemies) {
+	if (ableToFight >= enemies ) {
 		console.log("There are only " + enemies + " enemies; " + nickName + " slaughters them!");
 		return true;
 	} else {
