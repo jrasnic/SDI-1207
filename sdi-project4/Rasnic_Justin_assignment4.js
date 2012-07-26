@@ -46,26 +46,34 @@ var myLibrary = function () {
 	var titleCase = function (string) {
 		var wordCheck = /\s/;
 		var firstLetter = string.slice(0,1);
-		string = string.split(firstLetter).join(firstLetter.toUpperCase(),1);
+		string = string.split(firstLetter).join(firstLetter.toUpperCase());
 		for (var i = 0; i < string.length; i++) {
-			if (wordCheck.test(string.slice(i,i+1)) == true){
-				var lowerCaseLetter = string.slice(i+1,i+2);
-				var upperCaseLetter = lowerCaseLetter.toUpperCase();
-				string = string.split(lowerCaseLetter).join(upperCaseLetter,1);
+			if (wordCheck.test(string.slice(i,i+1)) == true){               // Can't get it to work right. Once a letter is
+				var lowerCaseLetter = string.slice(i+1,i+2);                // replaced with capitol, all occurrances of that
+				var upperCaseLetter = lowerCaseLetter.toUpperCase();        // leeter are replaced within the string.
+				string = string.split(lowerCaseLetter).join(upperCaseLetter);      
 			}
 		}
-		return string;
+		return string;        
 	};
 
 	// Given a string that is a list of things separated by a given string, 
 	// as well as another string separator, return a string with the first 
 	// separator changed to the second: "a,b,c" + "," + "/" → "a/b/c".
 
+	var changeSeparator = function (string, oldSep, newSep) {
+		var newString = string.replace(oldSep, newSep, "g");
+		return newString;
+
+	};
+
+
 	return {
 		"validPhoneNumCheck": validPhoneNumCheck,
 		"validEmailCheck": validEmailCheck,
 		"urlCheck": urlCheck,
-		"titleCase": titleCase
+		"titleCase": titleCase,
+		"changeSeparator": changeSeparator
 
 	};
 
@@ -77,4 +85,5 @@ console.log(myLib.validPhoneNumCheck("203-297-5077"));
 console.log(myLib.validEmailCheck("bballerjr05@yahoo.com"));
 console.log(myLib.urlCheck("https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/substring"));
 console.log(myLib.titleCase("i hope this works"));
+console.log(myLib.changeSeparator("a,b,c",",","/"));
 
