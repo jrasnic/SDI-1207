@@ -87,7 +87,12 @@ var myLibrary = function () {
 		};
 	};
 
+	// Given a string version of a number such as "42", return the value as an actual Number, such as 42.
 
+	var stringToNum = function (stringNumber) {
+		var newNumber = parseFloat(stringNumber);
+		return newNumber;
+	};
 
 	return {
 		"validPhoneNumCheck": validPhoneNumCheck,
@@ -96,7 +101,8 @@ var myLibrary = function () {
 		"titleCase": titleCase,
 		"changeSeparator": changeSeparator,
 		"formatNumber": formatNumber,
-		"daysFrom": daysFrom
+		"daysFrom": daysFrom,
+		"stringToNum": stringToNum
 
 	};
 
@@ -111,4 +117,5 @@ console.log(myLib.titleCase("i hope this works"));
 console.log(myLib.changeSeparator("a,b,c",",","/"));
 console.log(myLib.formatNumber(3.14159));
 console.log(myLib.daysFrom(1986,09,04));
+console.log(myLib.stringToNum("-47.3"));
 
