@@ -94,6 +94,22 @@ var myLibrary = function () {
 		return newNumber;
 	};
 
+	// Find the smallest value in an array that is greater than a given number
+
+	var smallestNum = function (array, number) {
+		function compareNumbers(a, b)  
+		{  
+ 		 return a - b;  
+		} 
+		array = array.sort(compareNumbers);
+		for(var i = 0; i < array.length; i++) {
+			if (array[i] > number) {
+				return array[i];
+			}; 
+		};
+	};
+
+
 	return {
 		"validPhoneNumCheck": validPhoneNumCheck,
 		"validEmailCheck": validEmailCheck,
@@ -102,7 +118,8 @@ var myLibrary = function () {
 		"changeSeparator": changeSeparator,
 		"formatNumber": formatNumber,
 		"daysFrom": daysFrom,
-		"stringToNum": stringToNum
+		"stringToNum": stringToNum,
+		"smallestNum": smallestNum
 
 	};
 
@@ -118,4 +135,5 @@ console.log(myLib.changeSeparator("a,b,c",",","/"));
 console.log(myLib.formatNumber(3.14159));
 console.log(myLib.daysFrom(1986,09,04));
 console.log(myLib.stringToNum("-47.3"));
+console.log(myLib.smallestNum([32,23,5,2,53,18,9,20,9], 23));
 
