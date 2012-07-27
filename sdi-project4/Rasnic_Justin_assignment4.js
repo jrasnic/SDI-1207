@@ -1,4 +1,5 @@
 // Justin Rasnic
+// 7/26/12
 // SDI 1207
 // Project 4
 // Library
@@ -73,6 +74,17 @@ var myLibrary = function () {
 		return newNumber;
 	};
 
+	// Fuzzy-match a number: is the number above or below a number within a certain percent?
+
+	var fuzzyMatch = function (number, number2, percent) {
+		var range = number2 * (percent/100);
+		if((number2 - range) <= number && number <= (number2 + range)) {
+			return true;
+		} else {
+			return false;
+		}
+	};
+
 	// Find the number of hours or days difference between two dates.
 
 	var daysFrom = function (year, month, day) {
@@ -100,7 +112,7 @@ var myLibrary = function () {
 		function compareNumbers(a, b)  
 		{  
  		 return a - b;  
-		} 
+		}; 
 		array = array.sort(compareNumbers);
 		for(var i = 0; i < array.length; i++) {
 			if (array[i] > number) {
@@ -109,6 +121,35 @@ var myLibrary = function () {
 		};
 	};
 
+	// Find the total value of just the numbers in an array, even if some of the items are not numbers.
+	// Totals actual numbers and numbers in the form of strings within the array.
+
+	var totalValue = function (array){
+		var total = 0;
+		var numberCheck = /\d+/;
+		for (var i = 0; i < array.length; i++) {
+			if (isNaN(array[i]) == false) {
+				total = total + parseFloat(array[i]);
+			};
+		};
+		return total;
+	};
+
+	// Given an array of objects and the name of a key, return the array sorted by the value of 
+	// that key in each of the objects: "a" + [{a:2},{a:3},{a:1}] → [{a:1},{a:2},{a:3}].
+
+	var sortObjectArray = function(ObjectArray, key) {
+		function compareNumbers(a, b)  
+		{  
+ 		 return a - b;  
+		}; 
+		ObjectArray = ObjectArray.sort(compareNumbers);       // STUMPED
+		return ObjectArray;
+	};
+
+
+
+	// Return Values
 
 	return {
 		"validPhoneNumCheck": validPhoneNumCheck,
@@ -119,11 +160,14 @@ var myLibrary = function () {
 		"formatNumber": formatNumber,
 		"daysFrom": daysFrom,
 		"stringToNum": stringToNum,
-		"smallestNum": smallestNum
-
+		"smallestNum": smallestNum,
+		"totalValue": totalValue,
+		"sortObjectArray": sortObjectArray,
+		"fuzzyMatch": fuzzyMatch
 	};
-
 };
+
+
 
 var myLib = myLibrary ();
 
@@ -136,4 +180,6 @@ console.log(myLib.formatNumber(3.14159));
 console.log(myLib.daysFrom(1986,09,04));
 console.log(myLib.stringToNum("-47.3"));
 console.log(myLib.smallestNum([32,23,5,2,53,18,9,20,9], 23));
-
+console.log(myLib.totalValue(["hi", 2, "hello", 3, 2, "12"]));
+console.log(myLib.sortObjectArray([{a:2},{a:1},{a:3}], "a"));
+console.log(myLib.fuzzyMatch(97,100,2));
